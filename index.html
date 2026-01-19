@@ -2,7 +2,8 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Launcher Minecraft</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glauncher V1.0.1</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -10,7 +11,7 @@
   <!-- NAVBAR -->
   <header class="navbar">
     <div class="logo">
-      <a href="#home">Glauncher V1.0.0</a>
+      <a href="#home">Glauncher</a>
     </div>
     <nav>
       <a href="#download">Download</a>
@@ -21,9 +22,30 @@
 
   <!-- HOME -->
   <section id="home" class="section home">
+    <div class="overlay"></div>
     <div class="content">
       <h1>Glauncher</h1>
-      <p>Baixe e jogue facilmente</p>
+      <p>Baixe e jogue Minecraft facilmente</p>
+      <a class="download-btn" href="#download">BAIXAR AGORA</a>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features" class="section features">
+    <h2>Nossas Vantagens</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Atualizações Automáticas</h3>
+        <p>Mantenha seu launcher sempre atualizado sem esforço.</p>
+      </div>
+      <div class="card">
+        <h3>Desempenho Melhorado</h3>
+        <p>Jogue Minecraft de forma mais rápida e leve.</p>
+      </div>
+      <div class="card">
+        <h3>Interface Intuitiva</h3>
+        <p>Fácil de usar, com tudo organizado e bonito.</p>
+      </div>
     </div>
   </section>
 
@@ -40,11 +62,31 @@
   <section id="sobre" class="section sobre">
     <h2>Sobre</h2>
     <p>
-      Nosso launcher foi criado para facilitar a vida de quem usa minecraft pirata,
-      aqui temos atualizacoes automaticas e melhor desempenho.
+      Nosso launcher foi criado para facilitar a vida de quem usa Minecraft pirata. 
+      Possui atualizações automáticas, melhor desempenho e uma interface intuitiva.
     </p>
   </section>
 
-</body>
+  <!-- RODAPÉ -->
+  <footer class="footer">
+    <p>© 2026 Glauncher. Todos os direitos reservados.</p>
+  </footer>
 
+  <script>
+    // Scroll Reveal simples
+    const sections = document.querySelectorAll('.section');
+    const reveal = () => {
+      const triggerBottom = window.innerHeight / 1.1;
+      sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        if(sectionTop < triggerBottom) {
+          section.classList.add('show');
+        }
+      });
+    }
+    window.addEventListener('scroll', reveal);
+    window.addEventListener('load', reveal);
+  </script>
+
+</body>
 </html>
