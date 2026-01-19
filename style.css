@@ -1,0 +1,116 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 70px;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  z-index: 1000;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 25px;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+
+.navbar a:hover {
+  color: #00ffcc;
+}
+
+.logo a {
+  font-size: 22px;
+}
+
+/* SEÇÕES */
+.section {
+  min-height: 100vh;
+  padding-top: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* HOME */
+.home {
+  background: url("fundo.jpg") no-repeat center center/cover;
+  color: #fff;
+}
+
+.home .content {
+  animation: fadeIn 1.2s ease forwards;
+}
+
+.home h1 {
+  font-size: 52px;
+}
+
+.home p {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+/* DOWNLOAD */
+.download {
+  background: #0f2027;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: #fff;
+}
+
+.download-btn {
+  margin-top: 30px;
+  padding: 20px 50px;
+  font-size: 22px;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 10px;
+  background: linear-gradient(45deg, #00ff99, #00ccff);
+  box-shadow: 0 0 25px rgba(0,255,200,0.5);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.download-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 45px rgba(0,255,200,0.9);
+}
+
+/* SOBRE */
+.sobre {
+  background: #111;
+  color: #ddd;
+  padding: 80px 20px;
+}
+
+.sobre p {
+  max-width: 600px;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+/* ANIMAÇÃO */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
