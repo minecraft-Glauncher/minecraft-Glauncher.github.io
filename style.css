@@ -1,8 +1,9 @@
+/* RESET E GERAL */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  font-family: 'Arial', sans-serif;
   scroll-behavior: smooth;
 }
 
@@ -12,12 +13,13 @@
   top: 0;
   width: 100%;
   height: 70px;
-  background: rgba(0,0,0,0.8);
+  background: rgba(0,0,0,0.85);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 40px;
+  padding: 0 50px;
   z-index: 1000;
+  backdrop-filter: blur(5px);
 }
 
 .navbar a {
@@ -25,15 +27,32 @@
   text-decoration: none;
   margin-left: 25px;
   font-weight: bold;
-  transition: color 0.2s;
+  position: relative;
+  transition: color 0.3s;
+}
+
+.navbar a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: #00ffcc;
+  left: 0;
+  bottom: -5px;
+  transition: width 0.3s;
 }
 
 .navbar a:hover {
   color: #00ffcc;
 }
 
+.navbar a:hover::after {
+  width: 100%;
+}
+
 .logo a {
-  font-size: 22px;
+  font-size: 24px;
+  font-weight: bold;
 }
 
 /* SEÇÕES */
@@ -45,72 +64,198 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.section.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* HOME */
 .home {
   background: url("fundo.jpg") no-repeat center center/cover;
   color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.home .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
 }
 
 .home .content {
-  animation: fadeIn 1.2s ease forwards;
+  position: relative;
+  z-index: 1;
+  animation: fadeInUp 1.5s ease forwards;
 }
 
 .home h1 {
-  font-size: 52px;
+  font-size: 56px;
+  margin-bottom: 15px;
+  text-shadow: 0 0 15px rgba(0,255,200,0.6);
 }
 
 .home p {
-  font-size: 20px;
-  margin-top: 10px;
+  font-size: 22px;
+  margin-bottom: 25px;
+}
+
+/* FEATURES */
+.features {
+  background: #111;
+  color: #ddd;
+  padding: 80px 20px;
+}
+
+.features h2 {
+  font-size: 36px;
+  margin-bottom: 40px;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.card {
+  background: #1a1a1a;
+  padding: 25px;
+  border-radius: 12px;
+  width: 250px;
+  box-shadow: 0 0 25px rgba(0,255,200,0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 40px rgba(0,255,200,0.6);
+}
+
+.card h3 {
+  margin-bottom: 15px;
+  font-size: 22px;
+}
+
+.card p {
+  font-size: 16px;
+  line-height: 1.5;
 }
 
 /* DOWNLOAD */
 .download {
-  background: #0f2027;
   background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
   color: #fff;
+  padding: 100px 20px;
+}
+
+.download h2 {
+  font-size: 36px;
+  margin-bottom: 30px;
 }
 
 .download-btn {
-  margin-top: 30px;
+  display: inline-block;
   padding: 20px 50px;
   font-size: 22px;
   color: #fff;
   text-decoration: none;
-  border-radius: 10px;
+  border-radius: 12px;
   background: linear-gradient(45deg, #00ff99, #00ccff);
   box-shadow: 0 0 25px rgba(0,255,200,0.5);
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: all 0.3s ease;
+  animation: glowPulse 2s infinite alternate;
 }
 
 .download-btn:hover {
-  transform: scale(1.08);
-  box-shadow: 0 0 45px rgba(0,255,200,0.9);
+  transform: scale(1.1);
+  box-shadow: 0 0 50px rgba(0,255,200,1);
 }
 
 /* SOBRE */
 .sobre {
   background: #111;
   color: #ddd;
-  padding: 80px 20px;
+  padding: 100px 20px;
+}
+
+.sobre h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
 }
 
 .sobre p {
-  max-width: 600px;
+  max-width: 700px;
   font-size: 18px;
   line-height: 1.6;
 }
 
-/* ANIMAÇÃO */
-@keyframes fadeIn {
+/* RODAPÉ */
+.footer {
+  background: #000;
+  color: #666;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 14px;
+  text-shadow: 0 0 8px rgba(0,255,200,0.2);
+}
+
+/* ANIMAÇÕES */
+@keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes glowPulse {
+  from {
+    box-shadow: 0 0 20px rgba(0,255,200,0.6);
+  }
+  to {
+    box-shadow: 0 0 50px rgba(0,255,200,1);
+  }
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 20px;
+  }
+  
+  .navbar a {
+    margin-left: 15px;
+  }
+
+  .home h1 {
+    font-size: 42px;
+  }
+
+  .home p {
+    font-size: 18px;
+  }
+
+  .features h2, .download h2, .sobre h2 {
+    font-size: 28px;
+  }
+
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .download-btn {
+    padding: 15px 35px;
+    font-size: 18px;
   }
 }
