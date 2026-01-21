@@ -8,6 +8,9 @@
 </head>
 <body>
 
+  <!-- FUNDO ANIMADO -->
+  <div class="bg-glow"></div>
+
   <!-- NAVBAR -->
   <header class="navbar">
     <div class="logo">
@@ -15,6 +18,7 @@
     </div>
     <nav>
       <a href="#download">Download</a>
+      <a href="#compatibilidade">Compatibilidade</a>
       <a href="https://discord.gg/pfnAwNdhjW" target="_blank">Discord</a>
       <a href="#sobre">Sobre</a>
     </nav>
@@ -23,28 +27,59 @@
   <!-- HOME -->
   <section id="home" class="section home">
     <div class="overlay"></div>
-    <div class="content">
+    <div class="content float">
       <h1>Glauncher</h1>
       <p>Baixe e jogue Minecraft facilmente</p>
-      <a class="download-btn" href="#download">BAIXAR AGORA</a>
+      <a class="download-btn pulse" href="#download">BAIXAR AGORA</a>
     </div>
   </section>
 
   <!-- FEATURES -->
-  <section id="features" class="section features">
+  <section class="section features">
     <h2>Nossas Vantagens</h2>
     <div class="cards">
-      <div class="card">
+      <div class="card glow">
         <h3>Atualizações Automáticas</h3>
-        <p>Mantenha seu launcher sempre atualizado sem esforço.</p>
+        <p>Mantenha seu launcher sempre atualizado.</p>
       </div>
-      <div class="card">
+      <div class="card glow">
         <h3>Desempenho Melhorado</h3>
-        <p>Jogue Minecraft de forma mais rápida e leve.</p>
+        <p>Mais leve e rápido para jogar.</p>
       </div>
-      <div class="card">
+      <div class="card glow">
         <h3>Interface Intuitiva</h3>
-        <p>Fácil de usar, com tudo organizado e bonito.</p>
+        <p>Simples, bonita e organizada.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPATIBILIDADE -->
+  <section id="compatibilidade" class="section compatibilidade">
+    <h2>Compatibilidade</h2>
+
+    <div class="compat-cards">
+      <div class="compat-card ok pulse-green">
+        <span class="icon">✔</span>
+        <h3>Vanilla</h3>
+        <p>Compatível</p>
+      </div>
+
+      <div class="compat-card ok pulse-green">
+        <span class="icon">✔</span>
+        <h3>Forge</h3>
+        <p>Compatível</p>
+      </div>
+
+      <div class="compat-card ok pulse-green">
+        <span class="icon">✔</span>
+        <h3>Fabric</h3>
+        <p>Compatível</p>
+      </div>
+
+      <div class="compat-card no shake-red">
+        <span class="icon">✖</span>
+        <h3>NeoForge</h3>
+        <p>Em breve</p>
       </div>
     </div>
   </section>
@@ -52,7 +87,7 @@
   <!-- DOWNLOAD -->
   <section id="download" class="section download">
     <h2>Download</h2>
-    <a class="download-btn"
+    <a class="download-btn mega-glow"
        href="https://github.com/guizinsrepo/Glauncher/releases/latest/download/Glauncher.exe">
        BAIXAR LAUNCHER
     </a>
@@ -62,28 +97,26 @@
   <section id="sobre" class="section sobre">
     <h2>Sobre</h2>
     <p>
-      Nosso launcher foi criado para facilitar a vida de quem usa Minecraft pirata. 
-      Possui atualizações automáticas, melhor desempenho e uma interface intuitiva.
+      Criado para facilitar a vida de quem joga Minecraft.
+      Leve, moderno e sempre atualizado.
     </p>
   </section>
 
-  <!-- RODAPÉ -->
+  <!-- FOOTER -->
   <footer class="footer">
     <p>© 2026 Glauncher. Todos os direitos reservados.</p>
   </footer>
 
   <script>
-    // Scroll Reveal simples
     const sections = document.querySelectorAll('.section');
     const reveal = () => {
-      const triggerBottom = window.innerHeight / 1.1;
-      sections.forEach(section => {
-        const sectionTop = section.getBoundingClientRect().top;
-        if(sectionTop < triggerBottom) {
-          section.classList.add('show');
+      const trigger = window.innerHeight * 0.85;
+      sections.forEach(sec => {
+        if (sec.getBoundingClientRect().top < trigger) {
+          sec.classList.add('show');
         }
       });
-    }
+    };
     window.addEventListener('scroll', reveal);
     window.addEventListener('load', reveal);
   </script>
